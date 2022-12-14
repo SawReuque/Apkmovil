@@ -1,0 +1,19 @@
+<ion-header [translucent]="true" *ngIf="user$ | async as user">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-button fill="clear"(click)="salir()" >Salir</ion-button>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-text slot="end">
+      <p>{{user.email}}</p>
+    </ion-text>
+    <ion-icon slot="end" name="person-circle-outline" class="ion-padding" size="large"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>

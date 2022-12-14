@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Mis Viajes
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="primary" slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button  [routerLink]="['/home']" >
+        <ion-icon color="primary" slot="icon-only" name="car-sport"></ion-icon>
+      </ion-button>
+      <ion-button  [routerLink]="['/perfil']" >
+        <ion-icon color="primary" slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="m-3">
+  <ion-segment (ionChange)="changeSegment($event)" value="nuevos" >
+    <ion-segment-button value="nuevos">
+      <ion-label class="normal">nuevos</ion-label>
+    </ion-segment-button>
+      <ion-segment-button value="finalizados">
+        <ion-label class="normal">finalizados</ion-label>
+      </ion-segment-button>
+  </ion-segment>
+</div>
+
+<ion-card *ngFor="let reserva of reservas">
+  <ion-item>
+    <ion-label class="normal">
+      Estado: {{reserva.estado}}
+      <p>
+        fecha: {{reserva.fecha.seconds*1000 | date}}
+      </p>
+    </ion-label>
+  </ion-item>
+<app-itemviajes *ngFor="let auto of reserva.autos"
+[autoPedido]="auto" [botones]="false"></app-itemviajes>
+</ion-card>
+
+
+
+</ion-content>
+

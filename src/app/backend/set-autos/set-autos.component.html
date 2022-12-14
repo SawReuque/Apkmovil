@@ -1,0 +1,138 @@
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Modificar Autos
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="primary" slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="text-align: end; margin: 10px;">
+    <ion-button (click)="nuevo()" class="normal" color="primary"> Nuevo</ion-button>
+  </div>
+
+  <div *ngIf="enableNewAuto">
+    <h3 class="subtitulo encabezado">Ingrese los datos del auto</h3>
+
+      <ion-item>
+        <ion-buttons slot="end">
+          <ion-button (click)="enableNewAuto = false" class="normal" color="medium">
+            <ion-icon color="danger" slot="icon-only" name="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Nombre:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.nombre" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Auto:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.auto" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Matricula:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.matricula" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Color:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.color" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Asientos:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.asientos" class="normal" type="number" inputmode="numeric">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Precio:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.precio" class="normal" type="number" inputmode="numeric">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Horario:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.horario" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Descripcion:
+      </ion-label>
+      <ion-input [(ngModel)]="newAuto.descripcion" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <img [src] ="newAuto.foto">
+    </ion-item>
+
+    <ion-item>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="images"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    
+  <ion-button style="margin: 30px" expand="full" color="dark"
+  (click)="guardarAuto()">
+      Guardar
+  </ion-button>
+  </div>
+
+
+
+
+<ion-card>
+
+  <h3 class="subtitulo encabezado">Lista de Autos</h3>
+<ion-item *ngFor="let auto of autos">
+  <ion-label class="normal">{{auto.nombre}}</ion-label>
+  <ion-buttons slot="end">
+    <ion-button (click)="newAuto = auto; enableNewAuto=true;">
+      <ion-icon slot="icon-only" color="warning" name="create-sharp"></ion-icon>
+    </ion-button>
+    <ion-button (click)="deleteAuto(auto)">
+      <ion-icon slot="icon-only" color="danger" name="trash-bin"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-item>
+</ion-card>
+
+
+</ion-content>

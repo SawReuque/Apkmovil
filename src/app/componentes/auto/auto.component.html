@@ -1,0 +1,33 @@
+
+<ion-card style="position: relative;">
+  <ion-icon (click)="addViajes()" class="icon-auto" name="person-add-outline"></ion-icon>
+  <ion-img class="img-auto" [src]="auto.foto"></ion-img>
+  <ion-item lines="full">
+    <ion-label class="subtitulo">Conductor: {{auto.nombre}}</ion-label>
+  </ion-item>
+
+
+
+<ion-item>
+  <p>Asientos disponibles: {{auto.asientos}}</p> 
+</ion-item>
+<ion-item>
+<p>Marca de auto: {{auto.auto}}</p> 
+</ion-item>
+<ion-item>
+<p>Color: {{auto.color}}</p> 
+</ion-item>
+<ion-item>
+<p>Matricula: {{auto.matricula}}</p> 
+</ion-item>
+<ion-item>
+  <p>Horario: {{auto.horario}}</p> 
+</ion-item>
+<ion-item>
+  <p>Precio: {{auto.precio}}</p> 
+</ion-item>
+<ion-item>
+  <p>Descripcion: {{auto.descripcion}}</p> 
+</ion-item>
+
+</ion-card>
